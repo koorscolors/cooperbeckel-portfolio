@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/5/53/ComicBook_favicon.svg" />
+        <title>CGB Portfolio and Resume</title>
+        <link rel="canonical" href="https://www.cooperbeckel.com/" />
+        <meta
+            name="description"
+            content="Cooper Graham Beckel portfolio and resume page redesign Fall 2023."
+        />
+        <meta name="robots" content="index,follow" />
+        <meta property="og:title" content="Cooper Beckel" />
+        <meta property="og:type" content="portfolio and resume" />
+        <meta name="author" content="Cooper Graham Beckel">
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="/styles/style.css" />
+        <link rel="stylesheet" href="/styles/catalogue.css" />
+        <link rel="stylesheet" href="/styles/footer.css" />
+        <link rel="stylesheet" href="/styles/primary-image-gallery.css" />
+        <!-- Javascript file -->
+        <script src="/scripts/primary-image-gallery.js"></script>
+        <!--Secure SSL -->
+    </head>
+    <body>
+        <header>
+        </header>
+        <main>
+            <article class="draggable-container" id="draggable">
+                <div class="stacked-nav">
+                    <div class="menu-item">
+                        <input type="checkbox" id="menu1">
+                        <label for="menu1">Catalogue</label>
+                        <ul>
+                            <li>
+                                <div class="sub-menu-item">
+                                    <input type="checkbox" id="menux">
+                                    <label for="menux"><a href=/index.html>Home</a></label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="sub-menu-item">
+                                    <input type="checkbox" id="menu12">
+                                    <label for="menu12">Images</label>
+                                     <ul>
+                                        <li><a href="/pages/image-pages/collected-drawings.html">Drawings</a></li> 
+                                        <li><a href="/pages/image-pages/ai-generated-images.html">AI Generated</a></li>                                                                               
+                                        <li style="background-color: yellow; color: black;"><a href="pages/image-pages/photography.html">Photographs</a></li>                                         
+                                        <li>Image Artifact</li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="sub-menu-item">
+                                    <input type="checkbox" id="menu13">
+                                    <label for="menu13">Projects</label>
+                                     <ul>
+                                         <li><a href="/pages/projects/serpent-disco.html">Serpent Disco</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="sub-menu-item">
+                                    <input type="checkbox" id="menu14">
+                                    <label for="menu14">AI Work</label>
+                                     <ul>
+                                         <li>AI Work Artifacts</li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="sub-menu-item">
+                                    <input type="checkbox" id="menu15">
+                                    <label for="menu15"><a href="/pages/about.html">About</a></label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="sub-menu-item">
+                                    <input type="checkbox" id="menu16">
+                                    <label for="menu16">Finds & Storage</label>
+                                     <ul>
+                                         <li>Finds & Storage</li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+            <!-- IMAGE GALLERY/GRID -->
+            <article class="gallery-container">
+                <div class="image-grid">
+                    <div class="image-container">
+                        <img src="/images/images-temp/photographs-temp/trash_tree-temp.jpg" alt="Image 1" onclick="openModal();currentSlide(1)" />
+                    </div>
+                    <div class="image-container">
+                        <img src="/images/images-temp/photographs-temp/boston_downtown-temp.jpg" alt="Image 2" onclick="openModal();currentSlide(2)" />
+                    </div>
+                    <div class="image-container">
+                        <img src="/images/images-temp/photographs-temp/telephone_obfuscations-temp.jpg" alt="Image 3" onclick="openModal();currentSlide(3)" />
+                    </div>
+                    <div class="image-container">
+                        <img src="/images/images-temp/photographs-temp/korea_monitoring-temp.jpg" alt="Image 4" onclick="openModal();currentSlide(4)" />
+                    </div>
+                    <div class="image-container">
+                        <img src="/images/images-temp/photographs-temp/potrero_station_light-temp.jpg" alt="Image 5" onclick="openModal();currentSlide(5)" />
+                    </div>  
+                    <div class="image-container">
+                        <img src="/images/images-temp/photographs-temp/red_doors_closed-temp.jpg" alt="Image 6" onclick="openModal();currentSlide(6)" />
+                    </div>
+                    <div class="image-container">
+                        <img src="/images/images-temp/photographs-temp/fens_bridge-temp.jpg" alt="Image 7" onclick="openModal();currentSlide(7)" />
+                    </div>
+                    <div class="image-container">
+                        <img src="/images/images-temp/photographs-temp/towers-temp.jpg" alt="Image 8" onclick="openModal();currentSlide(8)" />
+                    </div>
+                    <div class="image-container">
+                        <img src="/images/images-temp/photographs-temp/los_angeles_golden_hour-temp.jpg" alt="Image 9" onclick="openModal();currentSlide(9)" />
+                    </div>
+                    <!-- Add more image containers as needed -->
+                </div>
+            </article>
+            <!-- Modal structure for enlarged images -->
+            <div id="myModal" class="modal">
+                <span class="close cursor" onclick="closeModal()">&times;</span>
+                <div class="modal-content">
+
+                     <!-- Previous/Next buttons -->
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+                    <!-- Slides -->
+                    <div class="mySlides">
+                        <img src="/images/images-temp/photographs-temp/trash_tree-temp.jpg" style="width:100%" />
+                    </div>
+                    <div class="mySlides">
+                        <img src="/images/images-temp/photographs-temp/boston_downtown-temp.jpg" style="width:100%" />
+                    </div>
+                    <div class="mySlides">
+                        <img src="/images/images-temp/photographs-temp/telephone_obfuscations-temp.jpg" style="width:100%" />
+                    </div>
+                    <div class="mySlides">
+                        <img src="/images/images-temp/photographs-temp/korea_monitoring-temp.jpg" style="width:100%" />
+                    </div>
+                    <div class="mySlides">
+                        <img src="/images/images-temp/photographs-temp/potrero_station_light-temp.jpg" style="width:100%" />
+                    </div>                    
+                    <div class="mySlides">
+                        <img src="/images/images-temp/photographs-temp/red_doors_closed-temp.jpg" style="width:100%" />
+                    </div>
+                    <div class="mySlides">
+                        <img src="/images/images-temp/photographs-temp/fens_bridge-temp.jpg" style="width:100%" />
+                    </div>
+                    <div class="mySlides">
+                        <img src="/images/images-temp/photographs-temp/towers-temp.jpg" style="width:100%" />
+                    </div>
+                    <div class="mySlides">
+                        <img src="/images/images-temp/photographs-temp/los_angeles_golden_hour-temp.jpg" style="width:100%" />
+                    </div>
+                    <!-- ... Add more modal images in the same structure as needed ... -->                    
+                </div>
+            </div>
+        </main>
+        <footer>
+            <p>cooper graham beckel</p>
+        </footer>
+        <script src="/script.js"></script>
+    </body>
+    <script>
+       document.addEventListener("DOMContentLoaded", function() {
+            const draggableCatalogue = document.querySelector('.draggable-container');
+            if (draggableCatalogue) {
+                function changeDraggableStartPosition() {
+                    draggableCatalogue.style.top = '4px';
+                    draggableCatalogue.style.left = '4px';
+                }
+                changeDraggableStartPosition();
+        };
+    });
+    </script>
+</html>

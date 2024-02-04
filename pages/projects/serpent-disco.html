@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/5/53/ComicBook_favicon.svg" />
+        <title>CGB Portfolio and Resume</title>
+        <link rel="canonical" href="https://www.cooperbeckel.com/" />
+        <meta
+            name="description"
+            content="Cooper Graham Beckel portfolio and resume page redesign Fall 2023."
+        />
+        <meta name="robots" content="index,follow" />
+        <meta property="og:title" content="Cooper Beckel" />
+        <meta property="og:type" content="portfolio and resume" />
+        <meta name="author" content="Cooper Graham Beckel">
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="/styles/style.css" />
+        <link rel="stylesheet" href="/styles/catalogue.css" />
+        <link rel="stylesheet" href="/styles/footer.css" />
+        <link rel="stylesheet" href="/styles/projects-disco.css" />
+        <!-- Javascript file -->
+        <script src="/scripts/primary-image-gallery.js"></script>
+        <!--Secure SSL -->
+    </head>
+    <body>
+        <header>
+        </header>
+        <main>
+            <article class="draggable-container" id="draggable">
+                <div class="stacked-nav">
+                    <div class="menu-item">
+                        <input type="checkbox" id="menu1">
+                        <label for="menu1">Catalogue</label>
+                        <ul>
+                            <li>
+                                <div class="sub-menu-item">
+                                    <input type="checkbox" id="menux">
+                                    <label for="menux"><a href=/index.html>Home</a></label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="sub-menu-item">
+                                    <input type="checkbox" id="menu12">
+                                    <label for="menu12">Images</label>
+                                     <ul>
+                                        <li><a href="/pages/image-pages/collected-drawings.html">Drawings</a></li> 
+                                        <li><a href="/pages/image-pages/ai-generated-images.html">AI Generated</a></li>                                                                               
+                                        <li><a href="/pages/image-pages/photography.html">Photographs</a></li>                                         
+                                        <li>Image Artifact</li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="sub-menu-item">
+                                    <input type="checkbox" id="menu13">
+                                    <label for="menu13">Projects</label>
+                                     <ul>
+                                        <li style="background-color: yellow; color: black;"><a href="/pages/projects/serpent-disco.html">Serpent Disco</a></li>                                         
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="sub-menu-item">
+                                    <input type="checkbox" id="menu14">
+                                    <label for="menu14">AI Work</label>
+                                     <ul>
+                                         <li>AI Work Artifacts</li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="sub-menu-item">
+                                    <input type="checkbox" id="menu15">
+                                    <label for="menu15"><a href="/pages/about.html">About</a></label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="sub-menu-item">
+                                    <input type="checkbox" id="menu16">
+                                    <label for="menu16">Finds & Storage</label>
+                                     <ul>
+                                         <li>Finds & Storage</li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+            <article class="project-viewer-medium">
+                <div class="iframe-container">
+                    <div class="iframe-container-left">
+                        <iframe id="inlineDiscoFrame"
+                        title="Inline Serpent Disco Frame"
+                        loading="lazy"
+                        src="https://serpentdisco.com/pages/expositions.html">
+                        </iframe>
+                    </div>
+                    <div class="iframe-container-right">
+                        
+                        <p>
+                            <a href="https://serpentdisco.com/pages/expositions.html">'Serpent Disco'</a> explores the infrastructures of belief and power. It examines the relationship between two systems that have shaped human interaction and societal organization: religious places of worship, and the electrical-internet grid. 
+                        <br/><br/>
+                            At the heart of this exploration is San Francisco, a city emblematic of technological advancement, and shaped by a diversity of belief. San Francisco can be seen as a terminus of the colonization of North America; where the electrical infrastructure – now exponentially more complex – that passed telegrams from East to West coalesced on the shores of the Pacific. Powering that infrastructural expansion were beliefs, often involving religious fervor: telephone poles, and Christian crosses. 
+                        <br/><br/>
+                            A map of this infrastructure serves as a glimpse into a system of systems. The glimpse is of an intermingling of sacred spaces where communities have traditionally congregated to share beliefs, and that of the sprawling, seen-but-unseen, network-architectures of glass and light through which are observed a digital paradigm and a secular faith. A photograph of these convergences may invite its viewer to reflect on the power and belief structures involved in the formation of the electrical-internet grid; 'holy sites' of limited access yet universal influence guarded by silicon valley ‘priests’. 
+                        <br/><br/>
+                        </p>
+                    </div>
+                </div>
+            </article>
+        </main>
+        <footer>
+            <p>cooper graham beckel</p>
+        </footer>
+        <script src="/script.js"></script>
+    </body>
+    <script>
+       document.addEventListener("DOMContentLoaded", function() {
+            const draggableCatalogue = document.querySelector('.draggable-container');
+            if (draggableCatalogue) {
+                function changeDraggableStartPosition() {
+                    draggableCatalogue.style.top = '4px';
+                    draggableCatalogue.style.left = '4px';
+                }
+                changeDraggableStartPosition();
+        };
+    });
+    </script>
+</html>
