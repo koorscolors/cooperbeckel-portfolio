@@ -15,7 +15,7 @@ p {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    max-width: 80%;
+    width: 80;
     margin-left: 10%;
     margin-right: 10%;
 }
@@ -25,4 +25,18 @@ p {
     padding-top: 5px;
     padding-bottom: 15px;
     height: 40vh;   
+}
+
+@media (min-width: 768px) {
+
+    .about-container > div > p {
+        min-width: 100%; 
+        max-width: 100%;
+    }
+    .about-container div {
+        max-width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
 }
