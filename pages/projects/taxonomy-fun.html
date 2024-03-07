@@ -18,7 +18,7 @@
           position: absolute; 
           right: 0;
           top: 0;
-          width: 24%;
+          /* width: 24%; */
           height: 100%;
           background-color: #f9f9f9;
           border-left: 1px solid #ccc;
@@ -39,7 +39,6 @@
 
         #nodeImage {
           object-fit: contain;
-          width: 95%;
         }
         
         #closePanelBtn {
@@ -51,7 +50,22 @@
           #closePanelBtn:hover {
             background-color: lightgrey;
             cursor: pointer;
-          }
+        }
+
+        @media (max-width: 600px) {
+            #objectPanel {
+                padding: 5px;
+                width: 40%;
+            }
+            #objectPanel h2 {
+                font-size: large;
+            }
+
+            #nodeName {
+                font-size: medium;
+            }
+        }
+
     </style>
     <link rel="stylesheet" href="/styles/style.css" />
     <link rel="stylesheet" href="/styles/catalogue.css" />
@@ -157,62 +171,71 @@
                     ],
                     "description": "A human being who can think, feel, and make decisions.",
                     "images": [
-                    "https://upload.wikimedia.org/wikipedia/commons/7/78/Maasai_men_walking_in_the_countryside.jpg",
-                    "https://upload.wikimedia.org/wikipedia/commons/5/54/2013-12-06_Orkan_Xaver_in_Warnem%C3%BCnde_04.jpg"
+                        "https://upload.wikimedia.org/wikipedia/commons/7/78/Maasai_men_walking_in_the_countryside.jpg",
+                        "https://upload.wikimedia.org/wikipedia/commons/5/54/2013-12-06_Orkan_Xaver_in_Warnem%C3%BCnde_04.jpg"
                     ]
                     },
                     {
-                    "name": "Animal",
-                    "children": [
-                        {
-                        "name": "Dog",
-                        "description": "A domesticated carnivorous mammal known for its loyalty and companionship."
-                        },
-                        {
-                        "name": "Cat",
-                        "description": "A small domesticated carnivorous mammal with soft fur, a short snout, and retractile claws."
-                        },
-                        {
-                        "name": "Horse",
-                        "description": "A large plant-eating domesticated mammal with solid hooves and a flowing mane and tail, used for riding, racing, and to carry and pull loads."
-                        },
-                        {
-                        "name": "Bird",
-                        "description": "A warm-blooded egg-laying vertebrate distinguished by the possession of feathers, wings, a beak, and typically by being able to fly."
-                        }
-                    ],
-                    "description": "A living creature that is not a human, often moving and eating."
+                        "name": "Animal",
+                        "children": [
+                            {
+                            "name": "Dog",
+                            "description": "A domesticated carnivorous mammal known for its loyalty and companionship."
+                            },
+                            {
+                            "name": "Cat",
+                            "description": "A small domesticated carnivorous mammal with soft fur, a short snout, and retractile claws."
+                            },
+                            {
+                            "name": "Horse",
+                            "description": "A large plant-eating domesticated mammal with solid hooves and a flowing mane and tail, used for riding, racing, and to carry and pull loads."
+                            },
+                            {
+                            "name": "Bird",
+                            "description": "A warm-blooded egg-laying vertebrate distinguished by the possession of feathers, wings, a beak, and typically by being able to fly."
+                            }
+                        ],
+                        "description": "A living creature that is not a human, often moving and eating.",
+                        "images": [
+                            "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Ring_tailed_lemur_and_twins.jpg/312px-Ring_tailed_lemur_and_twins.jpg"
+                        ]
                     },
                     {
-                    "name": "Car",
-                    "children": [
-                        {
-                        "name": "Delivery Vehicle",
-                        "description": "A car used for the purpose of transporting goods from one place to another."
-                        }
-                    ],
-                    "description": "A vehicle with four wheels, usually for carrying a small number of people.",
-                    "images": [
-                        "https://upload.wikimedia.org/wikipedia/commons/4/4b/Tractionfr02.jpg"
-                    ]
+                        "name": "Car",
+                        "children": [
+                            {
+                            "name": "Delivery Vehicle",
+                            "description": "A car used for the purpose of transporting goods from one place to another."
+                            }
+                        ],
+                        "description": "A vehicle with four wheels, usually for carrying a small number of people.",
+                        "images": [
+                            "https://upload.wikimedia.org/wikipedia/commons/4/4b/Tractionfr02.jpg"
+                        ]
                     },
                     {
-                    "name": "Truck",
-                    "children": [
-                        {
-                        "name": "Delivery Vehicle",
-                        "description": "A truck specifically used for the delivery of goods."
-                        },
-                        {
-                        "name": "Towed",
-                        "description": "A large vehicle attachment designed to be towed by a truck, used for transporting large quantities of goods."
-                        }
-                    ],
-                    "description": "A large vehicle used for transporting goods or materials."
+                        "name": "Truck",
+                        "children": [
+                            {
+                            "name": "Delivery Vehicle",
+                            "description": "A truck specifically used for the delivery of goods."
+                            },
+                            {
+                            "name": "Towed",
+                            "description": "A large vehicle attachment designed to be towed by a truck, used for transporting large quantities of goods."
+                            }
+                        ],
+                        "description": "A large vehicle used for transporting goods or materials.",
+                        "images": [
+                            "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Dutro130MDLXtreme.jpg/320px-Dutro130MDLXtreme.jpg"
+                        ]
                     },
                     {
-                    "name": "Heavy Vehicle",
-                    "description": "A very large vehicle, like a dump truck or bus, used for specific jobs or carrying many people."
+                        "name": "Heavy Vehicle",
+                        "description": "A very large vehicle, like a dump truck or bus, used for specific jobs or carrying many people.",
+                        "images": [
+                        "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Getting_the_boat_out_of_the_water_2_-_reversing_the_trailer_down_the_boat_ramp.jpg/320px-Getting_the_boat_out_of_the_water_2_-_reversing_the_trailer_down_the_boat_ramp.jpg"
+                        ]
                     },
                     {
                     "name": "Train",
@@ -264,9 +287,23 @@
             };
             // Tree
             // Select the SVG element and set its dimensions dynamically based on the viewport size
-            // Initial setup with reduced dimensions
-            var initialWidth = window.innerWidth * 0.70; // Reduce width by 20%
-            var initialHeight = window.innerHeight * 0.70; // Reduce height by 20%
+            function calculateInitialDimensions() {
+                if (window.innerWidth < 600) {
+                    return {
+                        width: window.innerWidth * 0.95, // Use 90% of viewport width for smaller screens
+                        height: window.innerHeight * 0.90 // Use 90% of viewport height for smaller screens
+                    };
+                } else {
+                    return {
+                        width: window.innerWidth * 0.70, // Use 70% of viewport width for larger screens
+                        height: window.innerHeight * 0.70 // Use 70% of viewport height for larger screens
+                    };
+                }
+            }
+            // Extract initial dimensions
+            var initialDimensions = calculateInitialDimensions();
+            var initialWidth = initialDimensions.width;
+            var initialHeight = initialDimensions.height;
 
             var svg = d3.select("svg")
                         .attr("width", initialWidth)
@@ -334,8 +371,7 @@
                 images.forEach((imageUrl) => {
                     const img = document.createElement('img');
                     img.src = imageUrl;
-                    img.style.width = '100px'; // Set image width
-                    img.style.height = '100px'; // Set image height
+                    img.style.width = '40%'; // Set image width
                     img.style.margin = '5px'; // Add some space between images
                     gallery.appendChild(img);
                 });
@@ -362,6 +398,11 @@
 
                 //display object panel   
                 document.getElementById("objectPanel").style.display = "block";
+                // if (initialWidth < 600) {
+                //     document.getElementById("objectPanel").style.width = "40%";
+                // } else {
+                //     document.getElementById("objectPanel").style.width= "24%";
+                // }
                 });
 
                 document.getElementById('closePanelBtn').addEventListener('click', function() {
@@ -384,7 +425,7 @@
             //Dynamic text size    
             function setTextSize() {
                     var textSize;
-                    if (window.innerWidth < 720) { // Example threshold
+                    if (window.innerWidth < 600) { // Example threshold
                         textSize = "10px"; // Smaller text size for smaller windows
                     } else if (window.innerWidth < 1440) {
                         textSize = "14px"; // Medium text size
@@ -400,10 +441,14 @@
             function updateTreeDimensions() {
                 var width = svg.attr("width");
                 var height = svg.attr("height");
-
-                tree.size([height, width - 220]);
-
-                // Assuming treeData is globally available or passed appropriately
+                if (width < 600) {
+                    tree.size([height, width - 220]);
+                    document.getElementById("objectPanel").style.width = "50%";
+                } else {
+                    tree.size([height, width - 250]);
+                    document.getElementById("objectPanel").style.width= "28%";
+                }
+            
                 var root = d3.hierarchy(treeData); // Make sure treeData is defined and accessible
                 drawTree(root); // Redraw the tree with the updated layout
             }
@@ -415,8 +460,9 @@
 
             // Add a listener to resize the tree dynamically
             window.addEventListener("resize", function() {
-                var adjustedWidth = window.innerWidth * 0.70; // Recalculate with 20% reduction
-                var adjustedHeight = window.innerHeight * 0.70; // Recalculate with 20% reduction
+                var adjustedDimensions = calculateInitialDimensions();
+                var adjustedWidth = adjustedDimensions.width;
+                var adjustedHeight = adjustedDimensions.height;
 
                 svg.attr("width", adjustedWidth)
                    .attr("height", adjustedHeight);

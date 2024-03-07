@@ -47,38 +47,3 @@ document.addEventListener('touchend', endDrag);
 document.addEventListener('touchmove', performDrag);
 
 
-
-
-/* const draggable = document.getElementById('draggable');
-
-let offsetX, offsetY, isDragging = false;
-
-draggable.addEventListener('mousedown', (e) => {
-    isDragging = true;
-    offsetX = e.clientX - draggable.getBoundingClientRect().left;
-    offsetY = e.clientY - draggable.getBoundingClientRect().top;
-    draggable.style.cursor = 'grabbing';
-});
-
-document.addEventListener('mouseup', () => {
-    isDragging = false;
-    draggable.style.cursor = 'grab';
-});
-
-document.addEventListener('mousemove', (e) => {
-    if (!isDragging) return;
-
-    let x = e.clientX - offsetX;
-    let y = e.clientY - offsetY;
-
-    // Boundary checks for left and top
-    x = Math.max(0, x);
-    y = Math.max(0, y);
-
-    // Boundary checks for right and bottom
-    x = Math.min(window.innerWidth - draggable.offsetWidth, x);
-    y = Math.min(window.innerHeight - draggable.offsetHeight, y);
-
-    draggable.style.left = x + 'px';
-    draggable.style.top = y + 'px';
-}); */

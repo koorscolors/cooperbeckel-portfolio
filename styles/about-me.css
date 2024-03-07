@@ -3,12 +3,11 @@
     margin-left: 0;
     margin-right: 0;
     margin-top: 140px; /* Assuming you want to keep the top margin */
-    padding-bottom: 60px; /* Ensures content is above the footer, adjust as necessary */
+    padding-bottom: 40px; /* Ensures content is above the footer, adjust as necessary */
     border-top: 1px solid violet;
     text-align: center;
     box-sizing: border-box; /* Ensure padding does not add to the height */
 }
-
 
 .about-article {
     max-width: 1200px;
@@ -31,9 +30,10 @@ h1 {
 
 p {
     font-size: medium;
-    padding: 20px;
+    /* padding: 20px; */
     padding-left: 10%;
     padding-right: 10%;
+    padding-bottom: 10px;
     text-align: justify;
 }
 
