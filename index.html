@@ -46,8 +46,9 @@
                                 <div class="sub-menu-item">
                                     <input type="checkbox" id="menu13">
                                     <label for="menu13">Projects</label>
-                                     <ul>
-                                         <li><a href="/pages/projects/serpent-disco.html">Serpent Disco</a></li>                                        
+                                    <ul>
+                                         <li><a href="/pages/projects/serpent-disco.html">Serpent Disco</a></li>  
+                                         <li><a href="/pages/projects/taxonomy-fun.html">Taxonomy Fun</a></li>                                       
                                     </ul>
                                 </div>
                             </li>
@@ -81,5 +82,16 @@
             <p>cooper graham beckel</p>
         </footer>
         <script src="script.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                 const draggableCatalogue = document.querySelector('.draggable-container');
+                 if (draggableCatalogue) {
+                     function changeDraggableStartPosition() {
+                         draggableCatalogue.style.position = 'absolute';
+                     }
+                     changeDraggableStartPosition();
+             };
+         });
+         </script>
     </body>
 </html>

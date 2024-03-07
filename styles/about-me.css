@@ -1,43 +1,66 @@
 .about-container {
-    max-width: 100vw;
-    height: 100vh;
+  min-width: 100vw;
     margin-left: 0;
     margin-right: 0;
-    margin-top: 100px;
+    margin-top: 140px; /* Assuming you want to keep the top margin */
+    padding-bottom: 60px; /* Ensures content is above the footer, adjust as necessary */
     border-top: 1px solid violet;
-    overflow: scroll;
-    z-index: 150;
+    text-align: center;
+    box-sizing: border-box; /* Ensure padding does not add to the height */
 }
+
+
+.about-article {
+    max-width: 1200px;
+    height: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+h1 {
+    text-align: left;
+    padding-left: 10px;
+}
+
+.profile-pic {
+    width: 80%; /* Default width to scale on smaller screens */
+    max-width: 500px; /* Maximum width for large screens */
+    height: auto; /* Maintain aspect ratio */
+    margin: 0 auto;
+  }
 
 p {
     font-size: medium;
+    padding: 20px;
+    padding-left: 10%;
+    padding-right: 10%;
+    text-align: justify;
 }
 
-.about-container div {
-    display: block;
-    width: 80vw;
-    margin-left: 10%;
-    margin-right: 10%;
-    /* display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 80;
-    height: 100%;
-    margin-left: 10%;
-    margin-right: 10%;
-    overflow: scroll; */
+/* Large desktops */
+@media (min-width: 1200px) {
+  .profile-pic {
+    width: 50%; /* Reduce size to 50% on large desktops */
+    max-width: 600px;
+  }
+}
+
+/* Tablets and small desktops */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .profile-pic {
+    width: 60%; /* Adjust size for medium screens */
+  }
+}
+
+/* Phones */
+@media (max-width: 767px) {
+  .profile-pic {
+    width: 50%; /* Half the screen size on small devices */
+  }
 }
 
 
-.about-container > div > img {
-    padding-top: 5px;
-    padding-bottom: 15px;
-    width: 500px;   
-    margin-left: calc(50% - 250px);
-}
-
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
 
     .about-container > div > p {
         min-width: 100%; 
@@ -61,3 +84,14 @@ p {
     }
 
 }
+
+@media (max-width: 480px) {
+    .about-container > div > img {
+        width: 140px;
+        margin: calc(50% - 70px);
+        padding-bottom: 1px;
+        padding-top: 2px;
+        margin-bottom: 0px;
+        margin-top: 0px;
+    }
+} */

@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tree Graph Example</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        .tree-container {
+          padding-left: 40px;
+          padding-bottom: 45px;
+          padding-top: 75px;
+        }
+        .selectedNode {
+          fill: red;
+          scale: 1.25;
+        }
+        #objectPanel {
+          display: none; /* Initially hidden */
+          position: absolute; 
+          right: 0;
+          top: 0;
+          width: 24%;
+          height: 100%;
+          background-color: #f9f9f9;
+          border-left: 1px solid #ccc;
+          padding: 10px;
+        }
+
+        #nodeName {
+          padding-top: 10px;
+          font-size: x-large;
+          font-weight: bold;
+          line-height: 0;
+          color: darkviolet;
+        }
+
+        #nodeDescription {
+          padding-bottom: 5px;
+        }
+
+        #nodeImage {
+          object-fit: contain;
+          width: 95%;
+        }
+        
+        #closePanelBtn {
+          background-color: white;
+          color: black;
+          font-weight: bold;
+          border: 1px solid black;
+        }
+          #closePanelBtn:hover {
+            background-color: lightgrey;
+            cursor: pointer;
+          }
+    </style>
+    <link rel="stylesheet" href="/styles/style.css" />
+    <link rel="stylesheet" href="/styles/catalogue.css" />
+    <link rel="stylesheet" href="/styles/footer.css" />
+</head>
+<body>
+    <article class="draggable-container" id="draggable">
+        <div class="stacked-nav">
+            <div class="menu-item">
+                <input type="checkbox" id="menu1">
+                <label for="menu1">Catalogue</label>
+                <ul>
+                    <li>
+                        <div class="sub-menu-item">
+                            <input type="checkbox" id="menux">
+                            <label for="menux"><a href=/index.html>Home</a></label>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="sub-menu-item">
+                            <input type="checkbox" id="menu12">
+                            <label for="menu12">Images</label>
+                            <ul>
+                                <li><a href="/pages/image-pages/collected-drawings.html">Drawings</a></li> 
+                                <li><a href="/pages/image-pages/ai-generated-images.html">AI Generated</a></li>                                                                               
+                                <li><a href="/pages/image-pages/photography.html">Photographs</a></li>            
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="sub-menu-item">
+                            <input type="checkbox" id="menu13">
+                            <label for="menu13">Projects</label>
+                            <ul>
+                                <li><a href="/pages/projects/serpent-disco.html">Serpent Disco</a></li>                                  
+                                <li style="background-color: yellow; color: black;"><a href="/pages/projects/taxonomy-fun.html">Taxonomy Fun</a></li>
+                            </ul> 
+                        </div>
+                    </li>
+                    <li>
+                        <div class="sub-menu-item">
+                            <input type="checkbox" id="menu14">
+                            <label for="menu14">AI Work</label>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="sub-menu-item">
+                            <input type="checkbox" id="menu15">
+                            <label for="menu15"><a href="/pages/about.html">About</a></label>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="sub-menu-item">
+                            <input type="checkbox" id="menu16">
+                            <label for="menu16">Finds & Storage</label>
+                            <ul>
+                                <li>Finds & Storage</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </article>
+    <main>  
+        <div class="tree-container">
+            <svg></svg>
+            <div id="objectPanel">
+                    <button id="closePanelBtn">X</button>
+                    <h2>Object Information</h2>
+                    <hr/>
+                    <p id="nodeName"></p>
+                    <p id="nodeDescription"></p>
+                    <p id="nodeChildren"></p>
+                    <p id="nodeParent"></p>
+                    <div id="gallery"></div>
+                    <!-- <img id="nodeImage"></img> -->
+                    <!-- Placeholders for future content like descriptions and images -->
+            </div>
+        </div>
+
+        <script>
+        // Your JSON data goes here
+            var treeData = 
+            {
+                "name": "Object",
+                "children": [
+                    {
+                    "name": "Person",
+                    "children": [
+                        {
+                        "name": "In Stroller",
+                        "description": "A young human being in a small vehicle with four wheels designed for carrying a baby or young child."
+                        },
+                        {
+                        "name": "In Wheelchair",
+                        "description": "An individual using a chair with wheels, designed for those who cannot walk due to illness, injury, or disability."
+                        },
+                        {
+                        "name": "On Phone",
+                        "description": "A person engaged in using a phone for communication, often distracted from their surroundings."
+                        }
+                    ],
+                    "description": "A human being who can think, feel, and make decisions.",
+                    "images": [
+                    "https://upload.wikimedia.org/wikipedia/commons/7/78/Maasai_men_walking_in_the_countryside.jpg",
+                    "https://upload.wikimedia.org/wikipedia/commons/5/54/2013-12-06_Orkan_Xaver_in_Warnem%C3%BCnde_04.jpg"
+                    ]
+                    },
+                    {
+                    "name": "Animal",
+                    "children": [
+                        {
+                        "name": "Dog",
+                        "description": "A domesticated carnivorous mammal known for its loyalty and companionship."
+                        },
+                        {
+                        "name": "Cat",
+                        "description": "A small domesticated carnivorous mammal with soft fur, a short snout, and retractile claws."
+                        },
+                        {
+                        "name": "Horse",
+                        "description": "A large plant-eating domesticated mammal with solid hooves and a flowing mane and tail, used for riding, racing, and to carry and pull loads."
+                        },
+                        {
+                        "name": "Bird",
+                        "description": "A warm-blooded egg-laying vertebrate distinguished by the possession of feathers, wings, a beak, and typically by being able to fly."
+                        }
+                    ],
+                    "description": "A living creature that is not a human, often moving and eating."
+                    },
+                    {
+                    "name": "Car",
+                    "children": [
+                        {
+                        "name": "Delivery Vehicle",
+                        "description": "A car used for the purpose of transporting goods from one place to another."
+                        }
+                    ],
+                    "description": "A vehicle with four wheels, usually for carrying a small number of people.",
+                    "images": [
+                        "https://upload.wikimedia.org/wikipedia/commons/4/4b/Tractionfr02.jpg"
+                    ]
+                    },
+                    {
+                    "name": "Truck",
+                    "children": [
+                        {
+                        "name": "Delivery Vehicle",
+                        "description": "A truck specifically used for the delivery of goods."
+                        },
+                        {
+                        "name": "Towed",
+                        "description": "A large vehicle attachment designed to be towed by a truck, used for transporting large quantities of goods."
+                        }
+                    ],
+                    "description": "A large vehicle used for transporting goods or materials."
+                    },
+                    {
+                    "name": "Heavy Vehicle",
+                    "description": "A very large vehicle, like a dump truck or bus, used for specific jobs or carrying many people."
+                    },
+                    {
+                    "name": "Train",
+                    "description": "A series of connected vehicles running on tracks, used for transporting people or goods over long distances."
+                    },
+                    {
+                    "name": "Bus",
+                    "description": "A large vehicle designed to carry many passengers, used for public or private transport over short or long distances."
+                    },
+                    {
+                    "name": "Motorcycle",
+                    "children": [
+                        {
+                        "name": "Has a Rider",
+                        "description": "A motorcycle being operated by an individual, often used for personal transportation."
+                        }
+                    ],
+                    "description": "A two-wheeled vehicle that is fast and used by one or two people."
+                    },
+                    {
+                    "name": "Bike",
+                    "children": [
+                        {
+                        "name": "Has a Rider",
+                        "description": "A bicycle being pedaled by an individual, used for both leisure and transportation."
+                        }
+                    ],
+                    "description": "A vehicle with two wheels powered by a person pedaling."
+                    },
+                    {
+                    "name": "Small Vehicle",
+                    "children": [
+                        {
+                        "name": "Skateboarder",
+                        "description": "An individual using a skateboard, a small board with wheels."
+                        },
+                        {
+                        "name": "Rollerblader",
+                        "description": "A person who moves on rollerblades, which are boots with a single line of small wheels along the bottom."
+                        },
+                        {
+                        "name": "Scooter",
+                        "description": "An individual riding a scooter, a small platform with two or more wheels that is propelled by a rider pushing off the ground."
+                        }
+                    ],
+                    "description": "A non-motorized vehicle meant for individual use, distinct from a car, bike, or motorcycle, for personal transportation. For example a skateboard"
+                    }
+                ]
+            };
+            // Tree
+            // Select the SVG element and set its dimensions dynamically based on the viewport size
+            // Initial setup with reduced dimensions
+            var initialWidth = window.innerWidth * 0.70; // Reduce width by 20%
+            var initialHeight = window.innerHeight * 0.70; // Reduce height by 20%
+
+            var svg = d3.select("svg")
+                        .attr("width", initialWidth)
+                        .attr("height", initialHeight);
+            var g = svg.append("g").attr("transform", "translate(65,0)");
+
+            var tree = d3.tree();
+
+            // This function redraws the tree based on the current layout.
+            function drawTree(root) {
+                g.selectAll("*").remove(); // Clear previous drawings
+
+                tree(root);
+
+                //links and nodes
+                var link = g.selectAll(".link")
+                    .data(root.descendants().slice(1))
+                    .enter().append("path")
+                    .attr("class", "link")
+                    .attr("d", function(d) {
+                    return "M" + d.y + "," + d.x
+                            + "L" + d.parent.y + "," + d.parent.x;
+                })
+                    .style("fill", "none")
+                    .style("stroke", "#ccc")
+                    .style("stroke-width", "2px");
+
+                var node = g.selectAll(".node")
+                    .data(root.descendants())
+                    .enter().append("g")
+                    .attr("class", "node")
+                    .attr("transform", function(d) { 
+                        return "translate(" + d.y + "," + d.x + ")"; 
+                });
+
+                node.append("circle")
+                    .attr("r", 4.5);
+
+                node.append("text")
+                    .attr("dy", "-2px")
+                    // .attr("dx", "3px")
+                    .attr("x", function(d) { return d.children ? -8 : 10; })
+                    .style("text-anchor", function(d) { return d.children ? "end" : "start"; })
+                    .text(function(d) { return d.data.name; });
+
+
+            // Interaction
+            node.on("click", function(event, d) {
+                // Highlight the selected node
+                d3.selectAll('.selectedNode').classed('selectedNode', false); // Reset previous selections
+                d3.select(this).select("circle").classed('selectedNode', true);
+
+                // Populate and display the object panel
+                document.getElementById("nodeName").innerText = d.data.name;
+                document.getElementById("nodeDescription").innerText = d.data.description;
+                // document.getElementById("nodeImage").src = d.data.images;
+                //image attempt
+                function displayImages(images) {
+                const gallery = document.getElementById('gallery');
+
+                // Clear the gallery first
+                gallery.innerHTML = '';
+
+                // Loop through each image URL and create an img element
+                images.forEach((imageUrl) => {
+                    const img = document.createElement('img');
+                    img.src = imageUrl;
+                    img.style.width = '100px'; // Set image width
+                    img.style.height = '100px'; // Set image height
+                    img.style.margin = '5px'; // Add some space between images
+                    gallery.appendChild(img);
+                });
+                }
+                displayImages(d.data.images);
+                
+                //display children
+                //If you want to show children even if there are none use the below
+                // let children = d.children ? d.children.map(child => child.data.name).join(", ") : "No children";
+                // document.getElementById("nodeChildren").innerText = "Children: " + children;
+                if (d.children) {
+                    let children = d.children.map(child => child.data.name).join(", ");
+                    document.getElementById("nodeChildren").innerText = "Children: " + children;
+                } else {
+                    // Optionally, you can clear the previous content or handle nodes without children differently
+                    document.getElementById("nodeChildren").innerText = ""; // Clear the content if no children
+                }
+                //display parents
+                let parent = d.parent ? d.parent.data.name : "No parents";
+                document.getElementById("nodeParent").innerText = "Parent: " + parent;
+                // Prepare for future content like descriptions and images
+                // Example: document.getElementById("nodeDescription").innerText = d.data.description;
+                
+
+                //display object panel   
+                document.getElementById("objectPanel").style.display = "block";
+                });
+
+                document.getElementById('closePanelBtn').addEventListener('click', function() {
+                document.getElementById('objectPanel').style.display = 'none'; // Hides the panel
+                d3.selectAll('.selectedNode').classed('selectedNode', false);
+                });
+
+                node.on('mouseover', function(d) {
+                    d3.select(this)
+                    .style('cursor', 'pointer')  // Changes the cursor to pointer
+                    .style('fill', 'grey');      // Changes the node color to grey              
+                })
+
+                .on('mouseout', function(d) {
+                    d3.select(this)
+                    .style('fill', 'black'); // Change 'originalColor' to whatever the node's original color is
+                });
+            }
+
+            //Dynamic text size    
+            function setTextSize() {
+                    var textSize;
+                    if (window.innerWidth < 720) { // Example threshold
+                        textSize = "10px"; // Smaller text size for smaller windows
+                    } else if (window.innerWidth < 1440) {
+                        textSize = "14px"; // Medium text size
+                    } else {
+                        textSize = "18px"; // Larger text size for larger windows
+                    }
+
+                    svg.selectAll("text")
+                    .style("font-size", textSize);
+                }
+
+            // Function to update the tree dimensions and redraw
+            function updateTreeDimensions() {
+                var width = svg.attr("width");
+                var height = svg.attr("height");
+
+                tree.size([height, width - 220]);
+
+                // Assuming treeData is globally available or passed appropriately
+                var root = d3.hierarchy(treeData); // Make sure treeData is defined and accessible
+                drawTree(root); // Redraw the tree with the updated layout
+            }
+
+            //Dynamic RESIZE
+            // Initially calculate the layout
+            updateTreeDimensions();
+            setTextSize();
+
+            // Add a listener to resize the tree dynamically
+            window.addEventListener("resize", function() {
+                var adjustedWidth = window.innerWidth * 0.70; // Recalculate with 20% reduction
+                var adjustedHeight = window.innerHeight * 0.70; // Recalculate with 20% reduction
+
+                svg.attr("width", adjustedWidth)
+                   .attr("height", adjustedHeight);
+                
+                updateTreeDimensions(); // Update the dimensions and redraw the tree
+                setTextSize(); // Adjust text size based on the new window size
+            });
+    
+            //Catalogue draw
+            document.addEventListener("DOMContentLoaded", function() {
+                    const draggableCatalogue = document.querySelector('.draggable-container');
+                    if (draggableCatalogue) {
+                        function changeDraggableStartPosition() {
+                            draggableCatalogue.style.top = '4px';
+                            draggableCatalogue.style.left = '4px';
+                            draggableCatalogue.style.position = 'absolute';
+                        }
+                        changeDraggableStartPosition();
+                };
+            });
+        </script>
+    </main>
+    <footer>
+        <p>cooper graham beckel</p>
+    </footer>
+    <script src="/script.js"></script>
+</body>
+<script>
+    
+</script>
+</html>

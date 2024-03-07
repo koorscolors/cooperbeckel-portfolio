@@ -1,5 +1,5 @@
 .project-viewer-medium {
-    margin-top: calc(15vh + 40px);
+    margin-top: 140px;
     padding-top: 5px;
     padding-left: 10px;
     width: 100vw;
@@ -13,6 +13,7 @@
     flex-direction: row;
     width: 100%;
     height: 100%;
+    padding-top: 30px;
 }
 
 .iframe-container-left {
