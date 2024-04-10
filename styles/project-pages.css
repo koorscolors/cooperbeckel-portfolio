@@ -6,8 +6,9 @@
         margin-top: 120px;
         margin-bottom: calc(2rem + 10px);
         padding: 0px;
+        padding-bottom: 60px;
         border: 1px solid violet;
-        overflow: hidden;
+        overflow: scroll;
         scrollbar-color: blue;    
 }
 
@@ -29,4 +30,29 @@
         flex: 65%;
         background-color: rgb(201, 234, 204);
         overflow: scroll;
+}
+
+
+/* embedded objs  */
+
+.embedded-writing-obj {
+        width: 80%;
+        height: 95%;
+        margin-left: 10%;
+        margin-right: 10%;
+        margin-top: 2%;
+        margin-bottom: 2%;
+        padding: 15px;
+        padding-bottom: 40px;
+        border: 1px solid darkviolet;
+        border-radius: 10px;
+        box-shadow: 3px 3px 3px rgba(12, 33, 139, 0.137);
+        background-color: rgb(240, 244, 247);
+        box-sizing: border-box;
+        overflow: scroll;
+        font-size: large;
+}
+
+.aviation-art-ml-writing-block {
+        font-size: larger;
 }
